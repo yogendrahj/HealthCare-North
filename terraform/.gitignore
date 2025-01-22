@@ -1,0 +1,9 @@
+# Terraform folders and files
+.terraform/
+
+# Local Terraform plan files
+plan
+
+# State files
+*.tfstate
+*.tfstate.backup
