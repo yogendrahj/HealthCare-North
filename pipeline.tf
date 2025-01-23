@@ -61,7 +61,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
       version          = "1"
       output_artifacts = ["tf-code"]
       configuration = {
-        FullRepositoryId     = "HealthCare-North"
+        FullRepositoryId     = "yogendrahj/HealthCare-North"
         BranchName           = "main"
         ConnectionArn        = var.github_connection_arn
         OutputArtifactFormat = "CODE_ZIP"
