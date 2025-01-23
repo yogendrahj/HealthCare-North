@@ -7,3 +7,5 @@ plan
 # State files
 *.tfstate
 *.tfstate.backup
+*.tfvars
+*.tfvars.json

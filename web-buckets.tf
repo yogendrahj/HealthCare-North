@@ -1,6 +1,6 @@
 # Module to manage the static website files.
 module "website_files" {
-  source = "./website"
+  source = "./src"
 }
 
 # The s3 bucket for the (dev) environment.
@@ -46,12 +46,12 @@ resource "aws_s3_object" "dev_s3_files" {
   for_each = {
     "index.html" = {
       key          = "index.html"
-      source_path  = "website/index.html"
+      source_path  = "src/index.html"
       content_type = "text/html"
     }
     "error.html" = {
       key          = "error.html"
-      source_path  = "website/error.html"
+      source_path  = "src/error.html"
       content_type = "text/html"
     }
   }
@@ -114,12 +114,12 @@ resource "aws_s3_object" "prod_s3_files" {
   for_each = {
     "index.html" = {
       key          = "index.html"
-      source_path  = "website/index.html"
+      source_path  = "src/index.html"
       content_type = "text/html"
     }
     "error.html" = {
       key          = "error.html"
-      source_path  = "website/error.html"
+      source_path  = "src/error.html"
       content_type = "text/html"
     }
   }

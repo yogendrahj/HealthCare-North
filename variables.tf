@@ -15,3 +15,8 @@ variable "aws_region" {
   type        = string
   default     = "eu-west-2"
 }
+
+variable "github_connection_arn" {
+  description = "The ARN of the GitHub CodeStar connection"
+  type        = string
+}
