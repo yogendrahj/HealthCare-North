@@ -24,4 +24,6 @@ phases:
   
   build:
     commands:
-      - terraform apply -var-file="../terraform.tfvars" --auto-approve
+      - ls -l
+      - cat terraform.tfvars
+      - terraform apply -var-file="terraform.tfvars" --auto-approve
