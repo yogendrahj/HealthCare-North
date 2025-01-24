@@ -18,6 +18,10 @@ phases:
 
   pre_build:
     commands:
+      - echo "=== Current Working Directory ==="
+      - pwd
+      - echo "=== Files ==="
+      - ls -la
       - echo "=== Running terraform init ==="
       - terraform init
       - terraform validate
