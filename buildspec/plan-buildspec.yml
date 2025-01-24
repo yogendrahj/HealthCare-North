@@ -5,7 +5,9 @@ phases:
     commands:
       - curl -sSL https://releases.hashicorp.com/terraform/1.5.7/terraform_1.5.7_linux_amd64.zip -o terraform.zip
       - unzip terraform.zip
+      - mkdir -p /usr/local/bin
       - mv terraform /usr/local/bin/
+      - export PATH=$PATH:/usr/local/bin
       - terraform --version
 
   pre_build:
