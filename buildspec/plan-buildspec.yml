@@ -30,4 +30,4 @@ phases:
     commands:
       - ls -l
       - cat terraform.tfvars
-      - terraform plan -var-file="terraform.tfvars"
+      - terraform plan -var-file="../terraform.tfvars"
