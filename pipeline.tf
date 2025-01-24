@@ -1,5 +1,5 @@
 resource "aws_codebuild_project" "tf-plan" {
-  name         = "tf-cicd-plan2"
+  name         = "tf-cicd-plan"
   description  = "Plan stage for terraform"
   service_role = "arn:aws:iam::216989108476:role/codebuild_fullaccess"
   artifacts {
