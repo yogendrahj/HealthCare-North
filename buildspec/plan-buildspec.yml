@@ -24,4 +24,4 @@ phases:
   
   build:
     commands:
-      - terraform plan -var-file="terraform.tfvars"
+      - terraform plan -var-file="../terraform.tfvars"
