@@ -3,16 +3,22 @@ phases:
 
   install:
     commands:
-      # Install HashiCorp's GPG key and repository for Amazon Linux
+      - echo "=== OS Info ==="
+      - uname -a
+      - cat /etc/os-release
+      - echo "=== Installing yum-utils ==="
       - yum install -y yum-utils
+      - echo "=== Adding HashiCorp Repo ==="
       - yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
-      # Install Terraform
+      - echo "=== Installing Terraform ==="
       - yum install -y terraform
-      # Verify installation
+      - echo "=== Verifying Terraform Installation ==="
+      - which terraform
       - terraform --version
 
   pre_build:
     commands:
+      - echo "=== Running terraform init ==="
       - terraform init
       - terraform validate
   
