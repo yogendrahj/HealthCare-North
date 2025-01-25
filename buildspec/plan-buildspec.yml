@@ -29,8 +29,3 @@ phases:
   build:
     commands:
       - terraform plan
-
-  artifacts:
-    files:
-      - '../src/*.html'
-    discard-paths: yes
