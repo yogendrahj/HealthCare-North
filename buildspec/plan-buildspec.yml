@@ -32,5 +32,5 @@ phases:
 
   artifacts:
     files:
-      - 'src/**/*.html'
+      - '../src/*.html'
     discard-paths: yes
