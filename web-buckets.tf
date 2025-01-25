@@ -46,12 +46,12 @@ resource "aws_s3_object" "dev_s3_files" {
   for_each = {
     "index.html" = {
       key          = "index.html"
-      source_path  = "src/index.html"
+      source_path  = "${path.module}/src/index.html"
       content_type = "text/html"
     }
     "error.html" = {
       key          = "error.html"
-      source_path  = "src/error.html"
+      source_path  = "${path.module}/src/error.html"
       content_type = "text/html"
     }
   }
@@ -115,12 +115,12 @@ resource "aws_s3_object" "prod_s3_files" {
   for_each = {
     "index.html" = {
       key          = "index.html"
-      source_path  = "src/index.html"
+      source_path  = "${path.module}/src/index.html"
       content_type = "text/html"
     }
     "error.html" = {
       key          = "error.html"
-      source_path  = "src/error.html"
+      source_path  = "${path.module}/src/error.html"
       content_type = "text/html"
     }
   }
