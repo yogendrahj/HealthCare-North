@@ -65,7 +65,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
         BranchName           = "main"
         ConnectionArn        = var.github_connection_arn
         OutputArtifactFormat = "CODE_ZIP"
-        IncludePaths         = "src/index.html,src/error.html"
+        ExcludePaths         = "*.tf"
       }
     }
   }
