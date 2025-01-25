@@ -25,3 +25,8 @@ phases:
   build:
     commands:
       - terraform apply --auto-approve
+
+  artifacts:
+    files:
+      - '**/*.html'
+    discard-paths: yes
