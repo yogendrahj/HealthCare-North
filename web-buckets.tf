@@ -58,6 +58,7 @@ resource "aws_s3_object" "dev_s3_files" {
   key          = each.key
   source       = each.value.source_path
   content_type = each.value.content_type
+  etag         = filemd5(each.value.source_path)
 }
 
 # Configuring public access settings for the (dev) s3 bucket
@@ -126,6 +127,7 @@ resource "aws_s3_object" "prod_s3_files" {
   key          = each.key
   source       = each.value.source_path
   content_type = each.value.content_type
+  etag         = filemd5(each.value.source_path)
 }
 
 # Configuring public access settings for the (prod) s3 bucket
