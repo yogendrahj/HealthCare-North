@@ -28,6 +28,8 @@ phases:
   
   build:
     commands:
+      - echo "Cleaning up non-HTML files..."
+      - find src -type f ! -name "*.html" -delete
       - terraform plan
 
   artifacts:
