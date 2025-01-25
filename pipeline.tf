@@ -65,7 +65,6 @@ resource "aws_codepipeline" "cicd_pipeline" {
         BranchName           = "main"
         ConnectionArn        = var.github_connection_arn
         OutputArtifactFormat = "CODE_ZIP"
-        ExcludePaths         = "*.tf"
       }
     }
   }
@@ -92,12 +91,11 @@ resource "aws_codepipeline" "cicd_pipeline" {
       name            = "dev-deployment"
       category        = "Deploy"
       owner           = "AWS"
-      provider        = "S3"
+      provider        = "CodeBuild"
       version         = "1"
       input_artifacts = ["tf-code"]
       configuration = {
-        BucketName = var.dev_bucket
-        Extract    = "true"
+        ProjectName = "tf-cicd-apply"
       }
     }
   }
@@ -125,11 +123,10 @@ resource "aws_codepipeline" "cicd_pipeline" {
       name     = "prod-deployment"
       category = "Deploy"
       owner    = "AWS"
-      provider = "S3"
+      provider = "CodeBuild"
       version  = "1"
       configuration = {
-        BucketName = var.prod_bucket
-        Extract    = "true"
+        ProjectName = "tf-cicd-apply"
       }
       input_artifacts = ["tf-code"]
     }
