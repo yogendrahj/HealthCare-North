@@ -84,18 +84,53 @@ resource "aws_codepipeline" "cicd_pipeline" {
     }
   }
 
+  # Deploy to Dev stage (Deploy first to dev)
   stage {
-    name = "Deploy"
+    name = "DeployToDev"
     action {
-      name            = "Deploy"
-      category        = "Build"
-      provider        = "CodeBuild"
-      version         = "1"
+      name            = "dev-deployment"
+      category        = "Deploy"
       owner           = "AWS"
+      provider        = "S3"
+      version         = "1"
       input_artifacts = ["tf-code"]
       configuration = {
-        ProjectName = "tf-cicd-apply"
+        BucketName = var.dev_bucket
+        Extract    = "true"
       }
+    }
+  }
+
+  # Manual approval before Deploy to Prod
+  stage {
+    name = "ManualApproval"
+    action {
+      name     = "manual-approval"
+      category = "Approval"
+      owner    = "AWS"
+      provider = "Manual"
+      version  = "1"
+      configuration = {
+        ExternalEntityLink = "https://healthcarenorth-devs3.s3.eu-west-2.amazonaws.com"
+      }
+      input_artifacts = []
+    }
+  }
+
+  # Deploy to Prod stage (after manual approval)
+  stage {
+    name = "DeployToProd"
+    action {
+      name     = "prod-deployment"
+      category = "Deploy"
+      owner    = "AWS"
+      provider = "S3"
+      version  = "1"
+      configuration = {
+        BucketName = var.prod_bucket
+        Extract    = "true"
+      }
+      input_artifacts = ["tf-code"]
     }
   }
 
