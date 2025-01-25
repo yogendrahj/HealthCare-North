@@ -24,10 +24,15 @@ phases:
   
   build:
     commands:
-      - echo "Cleaning up non-HTML files..."
-      - terraform apply --auto-approve
+      - terraform apply --auto-approve+
+
+  post_build:
+    commands:
+      - echo "=== Verifying Files Before Artifact Upload ==="
+      - ls -R ../src
 
   artifacts:
     files:
       - '../src/*.html'
+    base-directory: '../src'
     discard-paths: yes
