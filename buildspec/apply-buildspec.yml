@@ -25,7 +25,9 @@ phases:
   build:
     commands:
       - echo "Cleaning up non-HTML files..."
-      - find src -type f ! -name "*.html" -delete
+      - ls ../src
+      - find ../src -type f ! -name "*.html" -exec rm -f {} \; 
+      - ls ../src
       - terraform apply --auto-approve
 
   artifacts:
