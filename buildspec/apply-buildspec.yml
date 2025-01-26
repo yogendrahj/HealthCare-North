@@ -31,8 +31,8 @@ phases:
       - echo "=== Verifying Files Before Artifact Upload ==="
       - ls -R ../src
 
-  artifacts:
-    base-directory: ../src
-    files:
-      - '**/*.html'
-    discard-paths: yes
+artifacts:
+  base-directory: ../src
+  files:
+    - '**/*.html'
+  discard-paths: yes
