@@ -37,4 +37,3 @@ artifacts:
   base-directory: src
   files:
     - '**/*.html'
-  discard-paths: yes
