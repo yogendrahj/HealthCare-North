@@ -25,6 +25,11 @@ phases:
       - echo "=== Running terraform init ==="
       - terraform init
       - terraform validate
+
+  post_build:
+    commands:
+      - echo "=== Verifying Files Before Artifact Upload ==="
+      - ls -R src
   
   build:
     commands:

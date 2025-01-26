@@ -29,12 +29,10 @@ phases:
   post_build:
     commands:
       - echo "=== Verifying Files Before Artifact Upload ==="
-      - ls -R ../src
+      - ls -R src
 
 artifacts:
   base-directory: src
   files:
     - '**/*.html'
-  exclude-paths:
-    - '**/*'
   discard-paths: yes
