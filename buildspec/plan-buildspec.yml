@@ -35,4 +35,6 @@ phases:
   
   build:
     commands:
+      - echo "<html><body>Test Page</body></html>" > src/test.html
+      - ls -R src
       - terraform plan
