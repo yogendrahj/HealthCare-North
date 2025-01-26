@@ -28,13 +28,13 @@ phases:
       - echo "=== Verifying src before build ==="
       - ls -R src
 
+  build:
+    commands:
+      - ls -R src
+      - terraform plan
+
   post_build:
     commands:
       - echo "=== Verifying Files Before Artifact Upload ==="
       - ls -R src
   
-  build:
-    commands:
-      - echo "<html><body>Test Page</body></html>" > src/test.html
-      - ls -R src
-      - terraform plan
