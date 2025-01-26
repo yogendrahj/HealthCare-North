@@ -32,7 +32,7 @@ phases:
       - ls -R ../src
 
 artifacts:
-  base-directory: ../src
+  base-directory: src
   files:
     - '**/*.html'
   discard-paths: yes
