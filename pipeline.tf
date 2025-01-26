@@ -78,6 +78,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
       version         = "1"
       owner           = "AWS"
       input_artifacts = ["tf-code"]
+      output_artifacts = ["tf-plan-artifact"]
       configuration = {
         ProjectName = "tf-cicd-plan"
       }
@@ -93,7 +94,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
       owner           = "AWS"
       provider        = "CodeBuild"
       version         = "1"
-      input_artifacts = ["tf-code"]
+      input_artifacts = ["tf-plan-artifact"]
       configuration = {
         ProjectName = "tf-cicd-apply"
       }
