@@ -24,7 +24,9 @@ phases:
   
   build:
     commands:
+      - echo "<html><body>Test Page</body></html>" > src/test.html
       - terraform apply --auto-approve
+      - ls -R src
 
   post_build:
     commands:
