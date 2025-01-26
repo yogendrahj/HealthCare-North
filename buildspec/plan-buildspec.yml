@@ -25,6 +25,8 @@ phases:
       - echo "=== Running terraform init ==="
       - terraform init
       - terraform validate
+      - echo "=== Verifying src before build ==="
+      - ls -R src
 
   post_build:
     commands:
